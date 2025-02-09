@@ -128,8 +128,7 @@ class RoutePlanner:
                         )
                         nearby_stations.append(station_with_distance)
                 
-                print('nearby_stations')
-                print(nearby_stations)
+             
                 # Sort by price and get best option
                 if nearby_stations:
                     nearby_stations.sort(key=lambda s: s.retail_price)
@@ -187,10 +186,8 @@ class RoutePlanner:
                 
                 # get the fuel needed based on car's range
                 if len(optimal_stops) > 0:
-                    print('ici')
                     fuel_needed = self.tank_range / self.mpg
                     last_station = optimal_stops[-1]
-                    print(last_station)
                     last_station['fuel_needed'] += fuel_needed
                     last_station['total_fuel'] = last_station['fuel_needed']
                     last_station['cost'] = (
@@ -210,7 +207,6 @@ class RoutePlanner:
                 reachable_stations,
                 key= lambda s: float(s.retail_price) * (1 + ((s.distance_from_start - current_position) / self.tank_range))
             )
-            print(best_station)
 
             if best_station:
                 # calculate the fuel to load to reach this station from the previous station or from the start
