@@ -137,13 +137,11 @@ class RoutePlanner:
 
                 # Reset distance counter from this new refueling point
                 current_distance = 0
-                
-                    
         
         return stations_near_route
     
     
-    def optimize_fuel_stops(self, route_distance: float, stations: list[StationWithDistance]) -> List[Dict]:
+    def optimize_fuel_stops(self, route_distance: float, stations: List[StationWithDistance]) -> List[Dict]:
         """Calculate optimal fuel stops (all distances in miles)"""
         current_range = self.tank_range
         total_distance = 0
